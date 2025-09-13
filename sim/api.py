@@ -93,15 +93,42 @@ def is_validator_authenticated(address: str):
     v = state.validators.get(address)
     return bool(v and v.authenticated)
 
+# sim/api.py (only showing the two ticks endpoints)
 @app.get("/ticks/{website_id}")
 def get_recent_ticks(website_id: str, n: int = 10):
     ticks = [r for r in state.reports if r["website_id"] == website_id][-n:]
-    return {"status": "Success", "data": ticks}
+    return {
+        "status": "Success",
+        "data": [
+            {
+                "validator": r["validator"],
+                "createdAt": r["createdAt"],
+                "status": r["status"],
+                "latency": r["latency"],
+                "location": r.get("location", "sim-location"),
+                "ml_weight": r.get("ml_weight", 1.0),
+            }
+            for r in ticks
+        ],
+    }
 
 @app.get("/ticks/{website_id}/all")
 def get_all_ticks(website_id: str):
     ticks = [r for r in state.reports if r["website_id"] == website_id]
-    return {"status": "Success", "data": ticks}
+    return {
+        "status": "Success",
+        "data": [
+            {
+                "validator": r["validator"],
+                "createdAt": r["createdAt"],
+                "status": r["status"],
+                "latency": r["latency"],
+                "location": r.get("location", "sim-location"),
+                "ml_weight": r.get("ml_weight", 1.0),
+            }
+            for r in ticks
+        ],
+    }
 
 @app.get("/me/websites")
 def get_my_websites(owner: str):
