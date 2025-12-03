@@ -12,7 +12,7 @@ class Node:
         block_time_s: float = 2.0,
         ml_enabled: bool = True,
         weight_rewards: bool = True,
-        ml_threshold: float = 0.3,
+        ml_threshold: float = 0.55,
     ):
         self.state = state
         self.block_time_s = block_time_s
