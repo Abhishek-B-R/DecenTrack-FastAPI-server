@@ -1,4 +1,3 @@
-# sim/node.py
 import time
 from collections import deque
 from typing import List

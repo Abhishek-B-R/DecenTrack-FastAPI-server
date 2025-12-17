@@ -1,4 +1,4 @@
-# sim/experiment_pow_vs_ml.py
+
 import time, random
 import numpy as np
 import matplotlib.pyplot as plt

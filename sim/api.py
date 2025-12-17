@@ -93,7 +93,7 @@ def is_validator_authenticated(address: str):
     v = state.validators.get(address)
     return bool(v and v.authenticated)
 
-# sim/api.py (only showing the two ticks endpoints)
+
 @app.get("/ticks/{website_id}")
 def get_recent_ticks(website_id: str, n: int = 10):
     ticks = [r for r in state.reports if r["website_id"] == website_id][-n:]

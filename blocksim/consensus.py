@@ -1,4 +1,4 @@
-class RoundRobinPoA:
+class RoundRobinPoW:
     def __init__(self, node_ids, block_interval_ms=2000):
         self.node_ids = node_ids
         self.block_interval_ms = block_interval_ms

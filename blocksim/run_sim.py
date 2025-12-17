@@ -3,7 +3,7 @@ from .env import SimEnv
 from .network import Network
 from .state import ChainState
 from .node import Node
-from .consensus import RoundRobinPoA
+from .consensus import RoundRobinPoW
 from .tx import UptimeReportTx
 
 def main():
@@ -16,7 +16,7 @@ def main():
         n = Node(env, net, f"node-{i}", state)
         nodes.append(n)
 
-    cons = RoundRobinPoA([n.node_id for n in nodes], block_interval_ms=2000)
+    cons = RoundRobinPoW([n.node_id for n in nodes], block_interval_ms=2000)
 
     def block_loop():
         while True:

@@ -1,4 +1,4 @@
-# ml_engine/model.py
+
 import sys
 import joblib
 import numpy as np
@@ -6,22 +6,16 @@ import pandas as pd
 from pathlib import Path
 from sklearn.base import BaseEstimator, RegressorMixin
 
-MODEL_PATHS = [
-    Path(__file__).parent / "reu-model3.joblib",
-    Path(__file__).parent / "reu-model2.joblib",
-    Path(__file__).parent / "reu-model.joblib",
-]
+MODEL_PATHS = [Path(__file__).parent / "reu-model.joblib",]
 
 def adaptive_difficulty_adjustment(current_difficulty, block_score, network_load):
     """
-    Implements your teacher's required formula:
+    Implements the required formula:
     new_difficulty = current * adjustment_factor, clipped to ±10 percent
     """
     adjustment_factor = block_score / (1 + network_load)
     adjustment_factor = np.clip(adjustment_factor, 0.9, 1.1)
     return current_difficulty * adjustment_factor
-# ------------------------------------------------------------
-
 
 class CustomConsensusWrapper(BaseEstimator, RegressorMixin):
     def __init__(self, gas_weight=0.4, tx_density_weight=0.3, difficulty_weight=0.3):
