@@ -21,7 +21,8 @@ std_dev = [2.1, 2.8, 1.5, 1.8]  # Error bars showing experimental variance
 colors = ['#E74C3C', '#3498DB', '#2ECC71', '#9B59B6']
 
 # Create figure
-fig, ax = plt.subplots(figsize=(12, 7))
+fig, ax = plt.subplots(figsize=(12, 7), facecolor='white')
+ax.set_facecolor('white')
 
 # Create bars with error bars
 x_pos = np.arange(len(systems))
@@ -32,7 +33,7 @@ bars = ax.bar(x_pos, accuracy, yerr=std_dev, capsize=8,
 # Customize axes
 ax.set_ylabel('Detection Accuracy (%)', fontsize=13, fontweight='bold')
 ax.set_xlabel('System Type', fontsize=13, fontweight='bold')
-ax.set_title('Detection Accuracy Comparison\nDecenTrack vs BI-WDRS', 
+ax.set_title('Detection Accuracy Trend Analysis \n DecenTrack (Internal Evaluation) with Literature Reference', 
              fontsize=15, fontweight='bold', pad=20)
 ax.set_xticks(x_pos)
 ax.set_xticklabels(systems, fontsize=11)
@@ -75,6 +76,6 @@ ax.text(0.98, 0.05, textstr, transform=ax.transAxes, fontsize=9,
         bbox=props)
 
 plt.tight_layout()
-plt.savefig('detection_accuracy_comparison.png', dpi=300, bbox_inches='tight')
+plt.savefig('detection_accuracy_comparison.png', dpi=300, bbox_inches='tight', facecolor='white')
 print("✓ Graph saved as 'detection_accuracy_comparison.png'")
 plt.show()

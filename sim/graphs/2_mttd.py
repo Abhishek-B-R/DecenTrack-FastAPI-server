@@ -28,7 +28,7 @@ bars = ax.bar(x_pos, response_times, yerr=std_dev, capsize=8,
 # Customize axes
 ax.set_ylabel('Average Response Time (seconds)', fontsize=13, fontweight='bold')
 ax.set_xlabel('System Type', fontsize=13, fontweight='bold')
-ax.set_title('Average Response Time Comparison\nDecenTrack vs BI-WDRS', 
+ax.set_title('Average Response Time Trend Analysis\n DecenTrack (Internal Evaluation) with Literature Reference', 
              fontsize=15, fontweight='bold', pad=20)
 ax.set_xticks(x_pos)
 ax.set_xticklabels(systems, fontsize=11)

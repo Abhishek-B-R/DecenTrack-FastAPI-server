@@ -28,7 +28,7 @@ bars = ax.bar(x_pos, fpr, yerr=std_dev, capsize=8,
 # Customize axes
 ax.set_ylabel('False Positive Rate (%)', fontsize=13, fontweight='bold')
 ax.set_xlabel('System Type', fontsize=13, fontweight='bold')
-ax.set_title('False Positive Rate Comparison\nDecenTrack vs BI-WDRS (Lower is Better)', 
+ax.set_title('False Positive Rate Trend Analysis\nDecenTrack (Internal Evaluation) with Literature Reference', 
              fontsize=15, fontweight='bold', pad=20)
 ax.set_xticks(x_pos)
 ax.set_xticklabels(systems, fontsize=11)

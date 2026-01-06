@@ -21,7 +21,7 @@ bars = ax.bar(systems, throughput, yerr=std_dev, capsize=8,
               error_kw={'elinewidth': 2, 'capthick': 2})
 
 ax.set_ylabel('Correct Decisions Per Block', fontsize=12, fontweight='bold')
-ax.set_title('Throughput Efficiency Comparison\nDecenTrack vs BI-WDRS (Higher is Better)',
+ax.set_title('Effective Consensus Throughput\nDecenTrack (Internal Evaluation) with Literature Reference',
              fontsize=13, fontweight='bold', pad=20)
 ax.set_ylim(0, 1.2)
 ax.grid(axis='y', alpha=0.3)
@@ -44,11 +44,11 @@ for i, (bar, val) in enumerate(zip(bars, throughput)):
 
 ax.legend(fontsize=10, loc='upper left')
 
-# Add annotation
-ax.text(0.5, -0.22, 
-        'DecenTrack PoW+ML achieves 62% higher throughput than traditional systems',
-        transform=ax.transAxes, ha='center', fontsize=10, style='italic',
-        bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.6))
+# # Add annotation
+# ax.text(0.5, -0.22, 
+#         'DecenTrack PoW+ML achieves 62% higher throughput than traditional systems',
+#         transform=ax.transAxes, ha='center', fontsize=10, style='italic',
+#         bbox=dict(boxstyle='round', facecolor='lightyellow', alpha=0.6))
 
 plt.tight_layout()
 plt.savefig('throughput_comparison.png', dpi=300, bbox_inches='tight')
